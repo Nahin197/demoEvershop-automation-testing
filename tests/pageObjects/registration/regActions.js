@@ -28,6 +28,14 @@ export class Registration{
      async clickOnSignButton(){
         await this.locator.buttonSignUp.click();
     }
+
+    async isAccountIconVisible(){
+        //  await this.page.waitForTimeout(2000);
+       
+         const isvisible = await this.locator.accountIconAfterLogin.isVisible();
+
+        return isvisible;
+    }
      
 
 }
