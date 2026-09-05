@@ -8,6 +8,7 @@ export class RegistrationObjects{
         this.passwordInput = this.page.getByRole("textbox",{name: 'password'});
         this.buttonSignUp = this.page.getByRole("button",{name: 'Sign Up'});
         this.accountIconAfterLogin =  this.page.locator("//a[contains(@href,'account')]");
+        this.emailDuplicateErrorModal = this.page.getByRole("alert",{name:"Email is already used"});
 
      }
 }
