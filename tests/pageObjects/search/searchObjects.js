@@ -1,22 +1,16 @@
+export  class SearchObjects {
+  constructor(page) {
+    this.page = page;
+    this.searchIcon = this.page.getByRole("link", { name: "Search" });
+    this.searchInput = this.page.getByRole("textbox", { name: "Search" });
+    this.buttonAddToCart = this.page.getByRole("button", {
+      name: "ADD TO CART",
+    });
+  }
 
-export default class searchObjects {
-    constructor(page){
-        this.page =page;
-        this.seachIcon = this.page.locator("//a[@class='search_icon']");
-        this.searchInput = this.page.getByRole("textbox", {name:"search"});
-        this.buttonAddToCart = this.page.getByRole("button",{name:"ADD TO CART"});
+  searchResultTitle(searchText,index) {
+    return this.page.locator(`(//h3[contains(text(),'${searchText}')])[${index}]`);
+  }
 
-
-      }
-
-      searchResultTitel(searchText){
-        return this.page.locator(`//h3[contains(text(),'${searchText}')]`);
-      }
-
-      productColor(){
-        return this.page.getByRole("link",{name:color});
-      }
-
-
-
-    }
+ 
+}
