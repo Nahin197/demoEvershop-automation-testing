@@ -10,7 +10,7 @@ let email = "", password = "12345678";
 
 test.describe("Evershop Ecommers Registration Feature", () => {
 
-    let registration, regLocator, utilities, logout, login,page,context;
+    let registration, regLocator, utilities, logout, login, page, context;
     // test.beforeEach(async ({ page }) => {
 
     //     registration = new Registration(page);
@@ -31,19 +31,19 @@ test.describe("Evershop Ecommers Registration Feature", () => {
     //     logout = new Logout(page);
     //     login = new Login(page);
 
-        
+
     // });
 
     test.beforeAll(async ({ browser }) => {
-  // context = await browser.newContext();
-  // page = await browser.newContext();
-  // await page.goto("https://demo.evershop.io/");
+        // context = await browser.newContext();
+        // page = await browser.newContext();
+        // await page.goto("https://demo.evershop.io/");
 
-  registration = new Registration(page);
-  utilities = new Utilities();
-  logout = new Logout(page);
-  login = new Login(page);
-});
+        registration = new Registration(page);
+        utilities = new Utilities();
+        logout = new Logout(page);
+        login = new Login(page);
+    });
 
     // tdd ,ddd format 
     test("Succesfully Register with a valid information", async ({ page }) => {
