@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test --project=chromium",
+    "reg": "npx playwright test tests/specs/reg.spec.js --headed",
     "getReport":"npx allure generate allure-results --clean && npx allure open allure-report"
   },
   "author": "Nahin",

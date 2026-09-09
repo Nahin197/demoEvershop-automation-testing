@@ -16,7 +16,7 @@ export default defineConfig({
   testDir: './tests/specs',
   // testMatch: "reg.spec.js",
   testMatch: "purchase.spec.js",
-  timeout: 30*1000, //wait 30 sec for each element fail
+  timeout: 30 * 1000, //wait 30 sec for each element fail
 
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -36,7 +36,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
-    video:'retain-on-failure'
+    video: 'retain-on-failure'
   },
 
   /* Configure projects for major browsers */
@@ -44,6 +44,25 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+    },
+
+    // run one file after another
+    {
+      name: "reg",
+      testMatch: "reg.spec.js",
+      use: { ...devices["Desktop Chrome"] },
+    },
+    {
+      name: "login",
+      use: { ...devices["Desktop Chrome"] },
+      testMatch: "login.spec.js",
+      dependencies: ["reg"],
+    },
+    {
+      name: "purchase",
+      use: { ...devices["Desktop Chrome"] },
+      testMatch: "purchase.spec.js",
+      dependencies: ["login"],
     },
 
     {
